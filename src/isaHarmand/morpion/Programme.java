@@ -2,7 +2,7 @@ package isaHarmand.morpion;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Scanner;
+
 public class Programme {
 
 	
@@ -28,52 +28,49 @@ public class Programme {
 	public void gagnant(char[]grid,char joueurActuel) {
 		montrerLaGrille(grid);
 		 System.out.println("Le joueur qui a les "+joueurActuel+"a gagné!");
+		 System.exit(0);
 	}
 	
 	public boolean isGagnant () {
 		//Vérifier s'il y a 3 elements alignés en vertical horizontal ou diagonale
 		//On verifie les lignes
-			for(int i=0;i<3;++i){
-            if (grid[i*3+0]==joueurActuel
-            && grid[i*3+1]==joueurActuel
-            && grid[i*3+2]==joueurActuel)
-            gagnant=true;
-        }
-		 if (gagnant){
+		for(int i=0;i<3;++i){
+            if (grid[i*3+0]==joueurActuel && grid[i*3+1]==joueurActuel && grid[i*3+2]==joueurActuel)
+            	gagnant=true;
+            if (gagnant){
 			 gagnant(grid, joueurActuel);
 			 break;
-		 }
+            }
+		}     
            
             //on verifie les colonnes
-         	for(int i=0;i<3;++i){
-            if (grid[i]==joueurActuel
-            && grid[i+3]==joueurActuel
-            && grid[i+6]==joueurActuel)
-            gagnant=true;
-        }
-        if (gagnant){
-        	 gagnant(grid, joueurActuel);
-        	 break;
-        }
+         for(int i=0;i<3;++i){
+            if (grid[i]==joueurActuel && grid[i+3]==joueurActuel && grid[i+6]==joueurActuel)
+            	gagnant=true;      
+            if (gagnant){
+            	gagnant(grid, joueurActuel);
+            	break;
+            }
+         }
        
         //on verifie 1ere diagonale
-        	for(int i=0;i<3;++i){
-            if (grid[0]==joueurActuel
-            && grid[4]==joueurActuel
-            && grid[8]==joueurActuel) {
+        for(int i=0;i<3;++i){
+            if (grid[0]==joueurActuel && grid[4]==joueurActuel && grid[8]==joueurActuel) {
             gagnant(grid, joueurActuel);
             break;
- }
+            }
+         }
 		
 		//on verifie 2eme diagonale
-            for(int j=0;j<3;++j){
-            if (grid[2]==joueurActuel
-            && grid[4]==joueurActuel
-            && grid[6]==joueurActuel) {
+           for(int j=0;j<3;++j){
+            if (grid[2]==joueurActuel && grid[4]==joueurActuel && grid[6]==joueurActuel) {
             gagnant(grid, joueurActuel);
-            break;}}}
+            break;
+            }
+           }
+        
             return gagnant;
-}
+	}
 
 
 	
@@ -87,7 +84,7 @@ public class Programme {
 	Random tirage=new Random();
 	int n=tirage.nextInt(nom.length);
 	joueurActuel=nom[n];	
-	System.out.println("Le joueur qui commence est "+nom[n]);
+	System.out.println("Le joueur qui joue est "+nom[n]);
 		
 		//imprimer la grille
 		
@@ -96,14 +93,11 @@ public class Programme {
 			// le joueur 1 choisit une case : entre 1 et 9 et non cochée.
 				// si caractere incorrect reposer la question	 
 
-		System.out.print(joueurActuel+ " choisis un numéro de case libre entre 1 et 9");
+		System.out.println(joueurActuel+ " choisis un numéro de case libre entre 1 et 9");
 		String cocher=scan.nextLine();
 			try {
 				cases =(char) Integer.parseInt(cocher);
-				if ((1<=cases) 
-					&& (cases<=9) 
-					&& (grid[cases-1]!=X) 
-					&& (grid[cases-1]!=O));
+				if ((1<=cases) && (cases<=9) && (grid[cases-1]!=X) && (grid[cases-1]!=O));
 				break;
 				}catch (Exception cases){}
 				
@@ -122,11 +116,11 @@ public class Programme {
            else 
         	   joueurActuel=X;
 	}
+	
+           
+         
 			
-}             
-	         
-			
-	            
+           
 	            		
 		/**
 	 * Main
@@ -134,7 +128,7 @@ public class Programme {
 public static void main(String[] args) {
 	/**TODO Auto-generated method stub*/
 			Programme morpion=new Programme();
-		}	
+		}}	
 	
 
 	
