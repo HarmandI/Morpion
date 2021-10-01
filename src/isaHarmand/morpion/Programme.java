@@ -7,7 +7,7 @@ public class Programme {
 
 	
 	Boolean gagnant= false;
-	char cases;
+	int cases;
 	char X='X';
 	char O='O';
 	Scanner scan=new Scanner(System.in);
@@ -36,22 +36,18 @@ public class Programme {
 		//On verifie les lignes
 		for(int i=0;i<3;++i){
             if (grid[i*3+0]==joueurActuel && grid[i*3+1]==joueurActuel && grid[i*3+2]==joueurActuel)
-            	gagnant=true;
-            if (gagnant){
 			 gagnant(grid, joueurActuel);
 			 break;
             }
-		}     
+		    
            
             //on verifie les colonnes
-         for(int i=0;i<3;++i){
+         for(int i=0;i<3;i++){
             if (grid[i]==joueurActuel && grid[i+3]==joueurActuel && grid[i+6]==joueurActuel)
-            	gagnant=true;      
-            if (gagnant){
             	gagnant(grid, joueurActuel);
             	break;
             }
-         }
+         
        
         //on verifie 1ere diagonale
         for(int i=0;i<3;++i){
@@ -96,10 +92,10 @@ public class Programme {
 		System.out.println(joueurActuel+ " choisis un numéro de case libre entre 1 et 9");
 		String cocher=scan.nextLine();
 			try {
-				cases =(char) Integer.parseInt(cocher);
+				cases =Integer.parseInt(cocher);
 				if ((1<=cases) && (cases<=9) && (grid[cases-1]!=X) && (grid[cases-1]!=O));
 				break;
-				}catch (Exception cases){}
+				}catch (Exception cases){cases.printStackTrace();}
 				
 			//Mettre le bon caractere dans la case choisie
 			grid[cases-1]=joueurActuel;
@@ -110,7 +106,7 @@ public class Programme {
 				System.out.println("Match nul!!");
 				break;		
 				}
-	}while(gagnant=false);// si non demander à l'autre joueur de choisir une case libre
+	}while(gagnant==false);// si non demander à l'autre joueur de choisir une case libre
             if(joueurActuel==X)
                 joueurActuel=O;
            else 
