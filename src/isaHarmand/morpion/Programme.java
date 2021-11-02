@@ -36,42 +36,50 @@ public class Programme {
 		for (int i = 0; i < 3; ++i) {
 			if (grid[i * 3 + 0] == joueurActuel && grid[i * 3 + 1] == joueurActuel && grid[i * 3 + 2] == joueurActuel)
 				gagnant = true;
-				gagnant(grid, joueurActuel);
-				break;
+		}
+		if(gagnant) {gagnant(grid, joueurActuel);
+			
 		}
 
 		// on verifie les colonnes
 		for (int i = 0; i < 3; i++) {
 			if (grid[i] == joueurActuel && grid[i + 3] == joueurActuel && grid[i + 6] == joueurActuel)
 				gagnant = true;
-				gagnant(grid, joueurActuel);
-				break;
 		}
+		if(gagnant) {gagnant(grid, joueurActuel);
+				
+		}
+		
 
 		// on verifie 1ere diagonale
 		for (int i = 0; i < 3; ++i) {
 			if (grid[0] == joueurActuel && grid[4] == joueurActuel && grid[8] == joueurActuel)
 				gagnant = true;
-				gagnant(grid, joueurActuel);
-				break;
+		}
+		if(gagnant) {gagnant(grid, joueurActuel);
+					
 		}
 
 		// on verifie 2eme diagonale
 		for (int j = 0; j < 3; ++j) {
 			if (grid[2] == joueurActuel && grid[4] == joueurActuel && grid[6] == joueurActuel)
 				gagnant = true;
-				gagnant(grid, joueurActuel);
-				break;
+		}
+		if(gagnant) {gagnant(grid, joueurActuel);
+				
 		}
 
 		// si toutes les cases sont pleines et qu'iln'y a pas 3 pions d'alligné match
 		// nul
-		for (int k = 0; k < 8; ++k) {
+		/*for (int k = 0; k < 8; ++k) {
 			if (grid[k] == X || grid[k] == O)
 				gagnant = true;
-				System.out.println("Match nul!!");
-				break;
 		}
+		if(gagnant) {
+				montrerLaGrille(grid);
+				System.out.println("Match nul!!");
+			
+		}*/
 
 		
 	}
@@ -95,7 +103,7 @@ public class Programme {
 		// le joueur 1 choisit une case : entre 1 et 9 et non cochée.
 		// si caractere incorrect reposer la question
 		while (true) {
-			System.out.print(joueurActuel + " choisis un numéro de case libre entre 1 et 9");
+			System.out.print(joueurActuel + " choisis un numéro de case libre entre 1 et 9 ");
 			saisir = scan.nextLine();
 			try {
 				cases = Integer.parseInt(saisir);
