@@ -99,7 +99,8 @@ public class Programme {
 
 		// imprimer la grille
 
-	do {	montrerLaGrille(grid);
+	while(gagnant == false) {	
+		montrerLaGrille(grid);
 		// le joueur 1 choisit une case : entre 1 et 9 et non cochée.
 		// si caractere incorrect reposer la question
 		while (true) {
@@ -117,15 +118,17 @@ public class Programme {
 		grid[cases - 1] = joueurActuel;
 
 		isGagnant();
-	}
+	
 
-	while(gagnant == false); // si non demander à l'autre joueur de choisir une case libre
+	 // si non demander à l'autre joueur de choisir une case libre
 			if (joueurActuel == X)
 				joueurActuel = O;
 			else
 				joueurActuel = X;
+			
 		
 	}	
+	}
 
 	/**
 	 * Main
